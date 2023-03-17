@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin ("http://localhost:4200")
+@CrossOrigin ("https://lourdes-ramos-6b55b.web.app/")
 @RestController
 public class Controller {
     
@@ -53,7 +53,7 @@ public class Controller {
     
     @GetMapping
     public String hola(){
-        return "Hi my name's Lya";
+        return "This is working, from Lya.";
     }
     
         @Bean

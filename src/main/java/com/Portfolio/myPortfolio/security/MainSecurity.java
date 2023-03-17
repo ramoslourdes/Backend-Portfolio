@@ -36,7 +36,7 @@ public class MainSecurity {
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:4200");
+        configuration.addAllowedOrigin("https://lourdes-ramos-6b55b.web.app/");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
