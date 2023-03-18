@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin ("https://lourdes-ramos-6b55b.web.app/")
+@CrossOrigin ("https://lourdes-ramos-1817.web.app/")
 @RestController
 public class Controller {
     

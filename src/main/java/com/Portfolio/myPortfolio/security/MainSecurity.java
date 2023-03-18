@@ -16,12 +16,33 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class MainSecurity {
 
     @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http
+        .cors(Customizer.withDefaults())
+        .authorizeRequests()
+            .antMatchers("/", "/index.html", "/css/**", "/js/**", "/img/**").permitAll() // Rutas públicas sin autenticación
+            .antMatchers("/login" , "/personas/ver", "/habilidades/ver", "/proyectos/ver", "/educacion/ver").permitAll() // Rutas públicas sin autenticación
+            .antMatchers("/*").authenticated() // Rutas autenticadas
+        .and()
+        .httpBasic()
+        .and()
+        .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+        .csrf()
+            .disable()
+        .build();
+}
+    
+    /*
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.cors(Customizer.withDefaults())
             .authorizeRequests()
-            .antMatchers("*").permitAll() // Rutas públicas sin autenticación
-            //.antMatchers("/login", "/personas/ver", "/habilidades/ver", "/proyectos/ver", "habilidades/editar", "/educacion/ver").permitAll() // Rutas públicas sin autenticación
-            //.antMatchers("/personas/**", "/habilidades/**", "/proyectos/**", "/educacion/**").authenticated() // Rutas autenticadas
+            //.antMatchers("*").permitAll() // Rutas públicas sin autenticación
+            .antMatchers("/personas/editar", "/personas/new", "/personas/delete", "/habilidades/editar", "/habilidades/new", "/habilidades/delete",
+                    "/proyectos/editar", "/proyectos/new", "/proyectos/delete", "/educacion/editar", "/educacion/new", "/educacion/delete").permitAll() // Rutas públicas sin autenticación
+            .antMatchers("/login", "/personas/ver", "/habilidades/ver", "/proyectos/ver", "habilidades/ver", "/educacion/ver").authenticated() // Rutas autenticadas
             .and()
             .httpBasic()
             .and()
@@ -32,11 +53,12 @@ public class MainSecurity {
             .disable()
             .build();
     }
+*/
     
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("https://lourdes-ramos-6b55b.web.app/");
+        configuration.addAllowedOrigin("https://lourdes-ramos-1817.web.app/");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
