@@ -58,7 +58,8 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("https://lourdes-ramos-1817.web.app/");
+        configuration.addAllowedOrigin("https://lourdes-ramos-181720.web.app/");
+        //configuration.addAllowedOrigin("http://localhost:4200");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
