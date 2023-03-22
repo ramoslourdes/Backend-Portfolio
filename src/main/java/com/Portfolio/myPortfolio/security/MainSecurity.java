@@ -21,7 +21,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .cors(Customizer.withDefaults())
         .authorizeRequests()
             .antMatchers("/", "/index.html", "/css/**", "/js/**", "/img/**").permitAll() // Rutas públicas sin autenticación
-            .antMatchers("/login" , "/personas/ver", "/habilidades/ver", "/proyectos/ver", "/educacion/ver").permitAll() // Rutas públicas sin autenticación
+            .antMatchers("/login" , "/personas/ver", "/habilidades/ver", "/proyectos/ver", "/educacion/ver", "/experiencias/ver").permitAll() // Rutas públicas sin autenticación
             .antMatchers("/*").authenticated() // Rutas autenticadas
         .and()
         .httpBasic()

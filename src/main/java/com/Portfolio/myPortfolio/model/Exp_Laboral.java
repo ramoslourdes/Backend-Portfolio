@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Exp_Laboral {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    private int id;
+    private Long id;
     @Basic
     private String empresa;
     private String cargo;
@@ -24,7 +24,7 @@ public class Exp_Laboral {
     public Exp_Laboral() {
     }
 
-    public Exp_Laboral(int id, String empresa, String cargo, String fecha_inicio, String fecha_fin, String descripcion){
+    public Exp_Laboral(Long id, String empresa, String cargo, String fecha_inicio, String fecha_fin, String descripcion){
         this.id = id;
         this.empresa = empresa;
         this.cargo = cargo;
