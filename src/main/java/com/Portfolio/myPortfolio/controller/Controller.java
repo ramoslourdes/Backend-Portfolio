@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin ("https://lourdes-ramos-181818.web.app/")
+@CrossOrigin ("https://lourdes-ramos-202020.web.app/")
 //@CrossOrigin ("http://localhost:4200")
 @RestController
 public class Controller {
@@ -150,12 +150,14 @@ public class Controller {
     public Proyecto guardarProyectos(@PathVariable Long id,
             @RequestParam ("titulo") String nuevoTitulo,
             @RequestParam ("descripcion") String nuevaDescripcion,
-            @RequestParam ("image") String nuevaImagen){
+            @RequestParam ("image") String nuevaImagen, 
+            @RequestParam ("link") String nuevoLink) {
         
         Proyecto proyect = proyeServ.buscarProyectos(id);
         proyect.setTitulo(nuevoTitulo);
         proyect.setDescripcion(nuevaDescripcion);
         proyect.setImage(nuevaImagen);
+        proyect.setLink(nuevoLink);
         proyeServ.guardarProyecto(proyect);
         return proyect;
     }

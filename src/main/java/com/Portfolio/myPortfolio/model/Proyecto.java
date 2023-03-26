@@ -18,14 +18,18 @@ public class Proyecto {
     private String titulo;
     private String descripcion;
     private String image;
+    private String link;
 
     public Proyecto() {
     }
 
-    public Proyecto(Long id, String titulo, String descripcion, String image) {
+    public Proyecto(Long id, String titulo, String descripcion, String image, String link) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.image = image;
+        this.link = link;
     }
+
+    
 }
